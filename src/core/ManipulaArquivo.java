@@ -25,9 +25,8 @@ public class ManipulaArquivo {
 
 					for (int colunaAtual = 0; colunaAtual < colunaMatriz; colunaAtual++) {
 
-						matriz[linhaAtual][colunaAtual] = Integer.parseInt(vect[colunaAtual]);
+						matriz[linhaAtual][colunaAtual] = Integer.parseInt(vect[colunaAtual]);				
 						
-						System.out.println(matriz[linhaAtual][colunaAtual]);
 					}
 
 				}

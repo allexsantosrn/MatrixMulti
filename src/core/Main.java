@@ -46,6 +46,37 @@ public class Main {
 				int A[][] = lerArquivo.lerAquivo(arquivoA);
 				int B[][] = lerArquivo.lerAquivo(arquivoB);
 				
+				//Caso o argumento passado seja do tipo Sequencial
+				if (args[1].equals("S")) {
+
+					CalculoSequencial calculoSequencial = new CalculoSequencial();
+
+					long inicioSequencial = System.currentTimeMillis();
+					int C[][] = calculoSequencial.MultriplicaMatrizes(A, B, tamMatriz);
+					// fimContagem = System.currentTimeMillis();
+
+					long terminoSequencial = System.currentTimeMillis() - inicioSequencial;
+
+					System.out.println("Tempo de execução: " + terminoSequencial);
+
+					
+					 for (int linhaAtual = 0; linhaAtual < tamMatriz; linhaAtual++) {
+					 
+					  for (int colunaAtual = 0; colunaAtual < tamMatriz; colunaAtual++) {
+					  
+					 System.out.print(C[linhaAtual][colunaAtual]); System.out.print(" "); }
+					  
+					  System.out.println("");
+					  
+					  }
+					 
+
+					//ManipulaArquivo salvarArquivo = new ManipulaArquivo();
+
+					//salvarArquivo.salvarArquivo(C, tamMatriz);
+
+				}
+				
 
 	}
 
