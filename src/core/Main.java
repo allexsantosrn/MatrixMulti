@@ -53,13 +53,12 @@ public class Main {
 
 					long inicioSequencial = System.currentTimeMillis();
 					int C[][] = calculoSequencial.MultriplicaMatrizes(A, B, tamMatriz);
-					// fimContagem = System.currentTimeMillis();
-
+					
 					long terminoSequencial = System.currentTimeMillis() - inicioSequencial;
 
 					System.out.println("Tempo de execução: " + terminoSequencial);
 
-					
+					/*
 					 for (int linhaAtual = 0; linhaAtual < tamMatriz; linhaAtual++) {
 					 
 					  for (int colunaAtual = 0; colunaAtual < tamMatriz; colunaAtual++) {
@@ -68,12 +67,13 @@ public class Main {
 					  
 					  System.out.println("");
 					  
-					  }
+					  } */
 					 
+					
+					//Salvando arquivo 
+					ManipulaArquivo salvarArquivo = new ManipulaArquivo();
 
-					//ManipulaArquivo salvarArquivo = new ManipulaArquivo();
-
-					//salvarArquivo.salvarArquivo(C, tamMatriz);
+					salvarArquivo.salvarArquivo(C, tamMatriz);
 
 				}
 				
