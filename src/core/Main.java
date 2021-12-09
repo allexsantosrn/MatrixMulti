@@ -75,6 +75,10 @@ public class Main {
 
 			salvarArquivo.salvarArquivo(C, tamMatriz);
 
+			ManipulaArquivo salvarTempo = new ManipulaArquivo();
+			
+			salvarTempo.salvarTempo(terminoSequencial, tamMatriz);
+			
 		}
 
 		if (args[1].equals("C")) {

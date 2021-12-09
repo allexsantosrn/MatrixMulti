@@ -45,7 +45,8 @@ public class ManipulaArquivo {
 
 	}
 
-	// Recebe uma matriz e seu tamanho e os exporta para um arquivo .txt.
+	// Recebe a matriz com o resultado da multiplicação e a exporta para um arquivo
+	// .txt.
 	public void salvarArquivo(int C[][], int tamMatriz) {
 
 		String tamanho = String.valueOf(tamMatriz);
@@ -80,4 +81,30 @@ public class ManipulaArquivo {
 
 	}
 
+	//Cria o arquivo .csv com o tempo de execução.
+	public void salvarTempo(long tempo, int tamMatriz) {
+
+		String tamanho = String.valueOf(tamMatriz);
+		String time = String.valueOf(tempo);
+
+		String path = new String("./tempos/C" + tamanho + "x" + tamanho + ".csv");
+
+		FileWriter writer = null;
+
+		try {
+			writer = new FileWriter(path);
+			writer.write(time);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 }
