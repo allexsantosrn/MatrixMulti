@@ -35,6 +35,17 @@ public class Main {
 					System.out.println("Tamanho das matrizes informadas é inválido!!");
 					System.exit(0);
 				}
+				
+				// Cria as Strings com o caminho dos arquivos escolhidos.
+				String arquivoA = new String("dados/A" + tamMatriz + "x" + tamMatriz + ".txt");
+				String arquivoB = new String("dados/B" + tamMatriz + "x" + tamMatriz + ".txt");
+				
+				ManipulaArquivo lerArquivo = new ManipulaArquivo();
+				
+				// Ler o arquivo e cria as matrizes.
+				int A[][] = lerArquivo.lerAquivo(arquivoA);
+				int B[][] = lerArquivo.lerAquivo(arquivoB);
+				
 
 	}
 
