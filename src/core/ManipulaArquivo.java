@@ -1,6 +1,7 @@
 package core;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -81,13 +82,28 @@ public class ManipulaArquivo {
 
 	}
 
-	//Cria o arquivo .csv com o tempo de execução.
+	// Cria o arquivo .csv com o tempo de execução.
 	public void salvarTempo(long tempo, int tamMatriz) {
 
 		String tamanho = String.valueOf(tamMatriz);
 		String time = String.valueOf(tempo);
 
-		String path = new String("./tempos/C" + tamanho + "x" + tamanho + ".csv");
+		String path = new String("tempos/C" + tamanho + "x" + tamanho + ".csv");
+
+		File file = new File(path);
+
+		// Verifica se o arquivo existe para recuperar os tempos.
+		if (file.exists()) {
+			
+			String vect[] = lerTempos(path);
+
+			time += " "+"\n";
+
+			for (int i = 0; i < vect.length; i++) {
+				time += vect[i] + " " + "\n";
+			}
+
+		}
 
 		FileWriter writer = null;
 
@@ -106,5 +122,23 @@ public class ManipulaArquivo {
 			e.printStackTrace();
 		}
 
+	}
+
+	public String[] lerTempos(String arquivo) {
+
+		try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
+
+			String[] vect = br.readLine().split(" ");
+
+			return vect;
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
