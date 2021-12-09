@@ -44,40 +44,40 @@ public class ManipulaArquivo {
 		return null;
 
 	}
-	
+
 	// Recebe uma matriz e seu tamanho e os exporta para um arquivo .txt.
-		public void salvarArquivo(int C[][], int tamMatriz) {
+	public void salvarArquivo(int C[][], int tamMatriz) {
 
-			String tamanho = String.valueOf(tamMatriz);
-			String conteudo = new String(tamanho + " " + tamanho + "\n");
+		String tamanho = String.valueOf(tamMatriz);
+		String conteudo = new String(tamanho + " " + tamanho + "\n");
 
-			String path = new String("./resultados/C" + tamanho + "x" + tamanho + ".txt");
+		String path = new String("./resultados/C" + tamanho + "x" + tamanho + ".txt");
 
-			for (int linhaAtual = 0; linhaAtual < tamMatriz; linhaAtual++) {
+		for (int linhaAtual = 0; linhaAtual < tamMatriz; linhaAtual++) {
 
-				for (int colunaAtual = 0; colunaAtual < tamMatriz; colunaAtual++) {
-					conteudo += String.valueOf(C[linhaAtual][colunaAtual]) + " ";
-				}
-				conteudo += "\n";
-			}			
-
-			FileWriter writer = null;
-			
-			try {
-				writer = new FileWriter(path);
-				writer.write(conteudo);
-
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			for (int colunaAtual = 0; colunaAtual < tamMatriz; colunaAtual++) {
+				conteudo += String.valueOf(C[linhaAtual][colunaAtual]) + " ";
 			}
-			try {
-				writer.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
+			conteudo += "\n";
 		}
+
+		FileWriter writer = null;
+
+		try {
+			writer = new FileWriter(path);
+			writer.write(conteudo);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 
 }
