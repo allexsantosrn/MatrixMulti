@@ -82,34 +82,38 @@ public class ManipulaArquivo {
 
 	}
 
-	// Cria o arquivo .csv com o tempo de execução.
+	// Cria o arquivo .txt com o tempo de execução.
 	public void salvarTempo(long tempo, int tamMatriz) {
 
 		String tamanho = String.valueOf(tamMatriz);
 		String time = String.valueOf(tempo);
+		
+		String conteudo="";
 
-		String path = new String("tempos/C" + tamanho + "x" + tamanho + ".csv");
+		String path = new String("tempos/C" + tamanho + "x" + tamanho + ".txt");
 
 		File file = new File(path);
 
-		// Verifica se o arquivo existe para recuperar os tempos.
+		// Verifica se o arquivo existe para recuperar os tempos anteriores.
 		if (file.exists()) {
-			
+
 			String vect[] = lerTempos(path);
 
-			time += " "+"\n";
+			//time += " ";
 
 			for (int i = 0; i < vect.length; i++) {
-				time += vect[i] + " " + "\n";
+				conteudo += vect[i] + " ";
 			}
 
 		}
+		
+		conteudo += time;
 
 		FileWriter writer = null;
 
 		try {
 			writer = new FileWriter(path);
-			writer.write(time);
+			writer.write(conteudo);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
