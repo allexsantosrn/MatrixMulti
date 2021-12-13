@@ -48,10 +48,11 @@ public class Main {
 
 		// Caso o argumento passado seja do tipo Sequencial
 		if (args[1].equals("S")) {
-			
+
 			String metodo = "S";
-			
+
 			long inicioSequencial = System.currentTimeMillis();
+
 			CalculoSequencial calculoSequencial = new CalculoSequencial(A, B, dimensao);
 			calculoSequencial.MultiplicaMatrizes();
 			int C[][] = calculoSequencial.getC();
@@ -59,18 +60,6 @@ public class Main {
 			long terminoSequencial = System.currentTimeMillis() - inicioSequencial;
 
 			System.out.println("Tempo de execução: " + terminoSequencial);
-
-			for (int linhaAtual = 0; linhaAtual < dimensao; linhaAtual++) {
-
-				for (int colunaAtual = 0; colunaAtual < dimensao; colunaAtual++) {
-
-					System.out.print(C[linhaAtual][colunaAtual]);
-					System.out.print(" ");
-				}
-
-				System.out.println("");
-
-			}
 
 			// Salvando arquivo
 			ManipulaArquivo salvarArquivo = new ManipulaArquivo();
@@ -92,7 +81,6 @@ public class Main {
 
 			System.out.println("Tempo de execução: " + terminoConcorrente);
 
-			
 		}
 
 	}

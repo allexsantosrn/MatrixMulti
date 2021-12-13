@@ -42,6 +42,7 @@ public class ManipulaArquivo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return null;
 
 	}
@@ -55,7 +56,13 @@ public class ManipulaArquivo {
 		String path = "";
 
 		if (metodo.equals("S")) {
+
 			path = new String("./resultados/sequencial/C" + tamanho + "x" + tamanho + ".txt");
+		}
+
+		if (metodo.equals("C")) {
+
+			path = new String("./resultados/concorrente/C" + tamanho + "x" + tamanho + ".txt");
 		}
 
 		for (int linhaAtual = 0; linhaAtual < dimensao; linhaAtual++) {
@@ -93,13 +100,16 @@ public class ManipulaArquivo {
 
 		String conteudo = "";
 		String path = "";
-		
+
 		if (metodo.equals("S")) {
-			
+
 			path = new String("tempos/sequencial/C" + tamanho + "x" + tamanho + ".txt");
 		}
 		
+		if (metodo.equals("C")) {
 
+			path = new String("tempos/concorrente/C" + tamanho + "x" + tamanho + ".txt");
+		}
 
 		File file = new File(path);
 
@@ -107,8 +117,6 @@ public class ManipulaArquivo {
 		if (file.exists()) {
 
 			String vect[] = lerTempos(path);
-
-			// time += " ";
 
 			for (int i = 0; i < vect.length; i++) {
 				conteudo += vect[i] + " ";
