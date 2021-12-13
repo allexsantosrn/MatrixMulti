@@ -2,20 +2,36 @@ package core;
 
 public class CalculoSequencial {
 
-	//Implementa o algoritmo para cálculo sequencial.
-		public int[][] MultiplicaMatrizes(int[][]A, int[][]B, int tamanho) {
+	private int[][] A;
+	private int[][] B;
+	private int[][] C;
+	private int dimensao;
 
-			int[][] C = new int[tamanho][tamanho];
+	//Construtor
+	public CalculoSequencial(int[][] A, int[][] B, int dimensao) {
+		this.A = A;
+		this.B = B;
+		this.C = new int[dimensao][dimensao];
+		this.dimensao = dimensao;
+	}
 
-			for (int i = 0; i < tamanho; i++) {
-				for (int j = 0; j < tamanho; j++) {
-					int soma = 0;
-					for (int k = 0; k < tamanho; k++) {
-						soma += A[i][k] * B[k][j];
-					}
-					C[i][j] = soma;
+	//Método que retorna a matriz calculada
+	public int[][] getC() {
+		return C;
+	}
+
+	// Implementa o algoritmo para cálculo sequencial.
+	public void MultiplicaMatrizes() {
+
+		for (int i = 0; i < dimensao; i++) {
+			for (int j = 0; j < dimensao; j++) {
+				int soma = 0;
+				for (int k = 0; k < dimensao; k++) {
+					soma += A[i][k] * B[k][j];
 				}
+				C[i][j] = soma;
 			}
-			return C;
 		}
+
+	}
 }

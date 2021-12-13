@@ -23,13 +23,13 @@ public class Main {
 		}
 
 		// Recebendo primeira variável do argumento e convertendo para inteiro.
-		int tamMatriz = Integer.parseInt(args[0]);
+		int dimensao = Integer.parseInt(args[0]);
 
 		// Verifica se os parâmetros de tamanho da matriz informados são diferente dos
 		// tamanhos especificados.
-		if ((tamMatriz != 4) && (tamMatriz != 8) && (tamMatriz != 16) && (tamMatriz != 32) && (tamMatriz != 64)
-				&& (tamMatriz != 128) && (tamMatriz != 256) && (tamMatriz != 512) && (tamMatriz != 1024)
-				&& (tamMatriz != 2048)) {
+		if ((dimensao != 4) && (dimensao != 8) && (dimensao != 16) && (dimensao != 32) && (dimensao != 64)
+				&& (dimensao != 128) && (dimensao != 256) && (dimensao != 512) && (dimensao != 1024)
+				&& (dimensao != 2048)) {
 
 			System.out.println("Programa encerrado!!");
 			System.out.println("Tamanho das matrizes informadas é inválido!!");
@@ -37,8 +37,8 @@ public class Main {
 		}
 
 		// Cria as Strings com o caminho dos arquivos escolhidos.
-		String arquivoA = new String("dados/A" + tamMatriz + "x" + tamMatriz + ".txt");
-		String arquivoB = new String("dados/B" + tamMatriz + "x" + tamMatriz + ".txt");
+		String arquivoA = new String("dados/A" + dimensao + "x" + dimensao + ".txt");
+		String arquivoB = new String("dados/B" + dimensao + "x" + dimensao + ".txt");
 
 		ManipulaArquivo lerArquivo = new ManipulaArquivo();
 
@@ -48,49 +48,51 @@ public class Main {
 
 		// Caso o argumento passado seja do tipo Sequencial
 		if (args[1].equals("S")) {
-
-			CalculoSequencial calculoSequencial = new CalculoSequencial();
-
+			
+			String metodo = "S";
+			
 			long inicioSequencial = System.currentTimeMillis();
-			int C[][] = calculoSequencial.MultiplicaMatrizes(A, B, tamMatriz);
+			CalculoSequencial calculoSequencial = new CalculoSequencial(A, B, dimensao);
+			calculoSequencial.MultiplicaMatrizes();
+			int C[][] = calculoSequencial.getC();
 
 			long terminoSequencial = System.currentTimeMillis() - inicioSequencial;
 
 			System.out.println("Tempo de execução: " + terminoSequencial);
 
-			/*
-			 * for (int linhaAtual = 0; linhaAtual < tamMatriz; linhaAtual++) {
-			 * 
-			 * for (int colunaAtual = 0; colunaAtual < tamMatriz; colunaAtual++) {
-			 * 
-			 * System.out.print(C[linhaAtual][colunaAtual]); System.out.print(" "); }
-			 * 
-			 * System.out.println("");
-			 * 
-			 * }
-			 */
+			for (int linhaAtual = 0; linhaAtual < dimensao; linhaAtual++) {
+
+				for (int colunaAtual = 0; colunaAtual < dimensao; colunaAtual++) {
+
+					System.out.print(C[linhaAtual][colunaAtual]);
+					System.out.print(" ");
+				}
+
+				System.out.println("");
+
+			}
 
 			// Salvando arquivo
 			ManipulaArquivo salvarArquivo = new ManipulaArquivo();
 
-			salvarArquivo.salvarArquivo(C, tamMatriz);
+			salvarArquivo.salvarArquivo(C, dimensao, metodo);
 
 			ManipulaArquivo salvarTempo = new ManipulaArquivo();
-			
-			salvarTempo.salvarTempo(terminoSequencial, tamMatriz);
-			
+
+			salvarTempo.salvarTempo(terminoSequencial, dimensao, metodo);
+
 		}
 
 		if (args[1].equals("C")) {
-			
+
 			long inicioConcorrente = System.currentTimeMillis();
-			//int C[][] = calculoSequencial.MultriplicaMatrizes(A, B, tamMatriz);
+			// int C[][] = calculoSequencial.MultriplicaMatrizes(A, B, dimensao);
 
 			long terminoConcorrente = System.currentTimeMillis() - inicioConcorrente;
 
 			System.out.println("Tempo de execução: " + terminoConcorrente);
 
-
+			
 		}
 
 	}

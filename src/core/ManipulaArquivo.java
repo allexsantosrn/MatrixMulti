@@ -48,16 +48,19 @@ public class ManipulaArquivo {
 
 	// Recebe a matriz com o resultado da multiplicação e a exporta para um arquivo
 	// .txt.
-	public void salvarArquivo(int C[][], int tamMatriz) {
+	public void salvarArquivo(int C[][], int dimensao, String metodo) {
 
-		String tamanho = String.valueOf(tamMatriz);
+		String tamanho = String.valueOf(dimensao);
 		String conteudo = new String(tamanho + " " + tamanho + "\n");
+		String path = "";
 
-		String path = new String("./resultados/C" + tamanho + "x" + tamanho + ".txt");
+		if (metodo.equals("S")) {
+			path = new String("./resultados/sequencial/C" + tamanho + "x" + tamanho + ".txt");
+		}
 
-		for (int linhaAtual = 0; linhaAtual < tamMatriz; linhaAtual++) {
+		for (int linhaAtual = 0; linhaAtual < dimensao; linhaAtual++) {
 
-			for (int colunaAtual = 0; colunaAtual < tamMatriz; colunaAtual++) {
+			for (int colunaAtual = 0; colunaAtual < dimensao; colunaAtual++) {
 				conteudo += String.valueOf(C[linhaAtual][colunaAtual]) + " ";
 			}
 			conteudo += "\n";
@@ -83,14 +86,20 @@ public class ManipulaArquivo {
 	}
 
 	// Cria o arquivo .txt com o tempo de execução.
-	public void salvarTempo(long tempo, int tamMatriz) {
+	public void salvarTempo(long tempo, int dimensao, String metodo) {
 
-		String tamanho = String.valueOf(tamMatriz);
+		String tamanho = String.valueOf(dimensao);
 		String time = String.valueOf(tempo);
 
 		String conteudo = "";
+		String path = "";
+		
+		if (metodo.equals("S")) {
+			
+			path = new String("tempos/sequencial/C" + tamanho + "x" + tamanho + ".txt");
+		}
+		
 
-		String path = new String("tempos/C" + tamanho + "x" + tamanho + ".txt");
 
 		File file = new File(path);
 
