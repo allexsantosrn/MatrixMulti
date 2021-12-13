@@ -74,12 +74,26 @@ public class Main {
 
 		if (args[1].equals("C")) {
 
+			String metodo = "C";
+			
 			long inicioConcorrente = System.currentTimeMillis();
-			// int C[][] = calculoSequencial.MultriplicaMatrizes(A, B, dimensao);
+
+			CalculoConcorrente calculoConcorrente = new CalculoConcorrente(A, B, dimensao);
+			calculoConcorrente.MultiplicaMatrizes();
+			int C[][] = calculoConcorrente.getC();
 
 			long terminoConcorrente = System.currentTimeMillis() - inicioConcorrente;
 
 			System.out.println("Tempo de execução: " + terminoConcorrente);
+
+			// Salvando arquivo
+			ManipulaArquivo salvarArquivo = new ManipulaArquivo();
+
+			salvarArquivo.salvarArquivo(C, dimensao, metodo);
+
+			ManipulaArquivo salvarTempo = new ManipulaArquivo();
+
+			salvarTempo.salvarTempo(terminoConcorrente, dimensao, metodo);
 
 		}
 
