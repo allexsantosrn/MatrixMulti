@@ -3,7 +3,7 @@ package core;
 public class CalculoSequencial {
 
 	//Implementa o algoritmo para cálculo sequencial.
-		public int[][] MultriplicaMatrizes(int[][]A, int[][]B, int tamanho) {
+		public int[][] MultiplicaMatrizes(int[][]A, int[][]B, int tamanho) {
 
 			int[][] C = new int[tamanho][tamanho];
 

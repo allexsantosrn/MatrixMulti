@@ -87,26 +87,26 @@ public class ManipulaArquivo {
 
 		String tamanho = String.valueOf(tamMatriz);
 		String time = String.valueOf(tempo);
-		
-		String conteudo="";
+
+		String conteudo = "";
 
 		String path = new String("tempos/C" + tamanho + "x" + tamanho + ".txt");
 
 		File file = new File(path);
 
-		// Verifica se o arquivo existe para recuperar os tempos anteriores.
+		// Verifica se o arquivo existe para recuperar os tempos salvos no arquivo.
 		if (file.exists()) {
 
 			String vect[] = lerTempos(path);
 
-			//time += " ";
+			// time += " ";
 
 			for (int i = 0; i < vect.length; i++) {
 				conteudo += vect[i] + " ";
 			}
 
 		}
-		
+
 		conteudo += time;
 
 		FileWriter writer = null;
@@ -128,6 +128,7 @@ public class ManipulaArquivo {
 
 	}
 
+	// Recebe o caminho do arquivo e recupera os tempos salvos no arquivo.
 	public String[] lerTempos(String arquivo) {
 
 		try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {

@@ -52,7 +52,7 @@ public class Main {
 			CalculoSequencial calculoSequencial = new CalculoSequencial();
 
 			long inicioSequencial = System.currentTimeMillis();
-			int C[][] = calculoSequencial.MultriplicaMatrizes(A, B, tamMatriz);
+			int C[][] = calculoSequencial.MultiplicaMatrizes(A, B, tamMatriz);
 
 			long terminoSequencial = System.currentTimeMillis() - inicioSequencial;
 
@@ -82,6 +82,14 @@ public class Main {
 		}
 
 		if (args[1].equals("C")) {
+			
+			long inicioConcorrente = System.currentTimeMillis();
+			//int C[][] = calculoSequencial.MultriplicaMatrizes(A, B, tamMatriz);
+
+			long terminoConcorrente = System.currentTimeMillis() - inicioConcorrente;
+
+			System.out.println("Tempo de execução: " + terminoConcorrente);
+
 
 		}
 
