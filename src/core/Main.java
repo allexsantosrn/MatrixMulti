@@ -42,7 +42,7 @@ public class Main {
 
 		ManipulaArquivo lerArquivo = new ManipulaArquivo();
 
-		// Ler o arquivo e cria as matrizes.
+		// Ler o arquivo com o caminho especificado e cria as matrizes.
 		int A[][] = lerArquivo.lerAquivo(arquivoA);
 		int B[][] = lerArquivo.lerAquivo(arquivoB);
 
@@ -61,13 +61,12 @@ public class Main {
 
 			System.out.println("Tempo de execução: " + terminoSequencial);
 
-			// Salvando arquivo
+			// Salvando arquivo com resultado da multiplicação.
 			ManipulaArquivo salvarArquivo = new ManipulaArquivo();
-
 			salvarArquivo.salvarArquivo(C, dimensao, metodo);
 
+			// Salvando arquivo com tempo de execução.
 			ManipulaArquivo salvarTempo = new ManipulaArquivo();
-
 			salvarTempo.salvarTempo(terminoSequencial, dimensao, metodo);
 
 		}
@@ -75,7 +74,7 @@ public class Main {
 		if (args[1].equals("C")) {
 
 			String metodo = "C";
-			
+
 			long inicioConcorrente = System.currentTimeMillis();
 
 			CalculoConcorrente calculoConcorrente = new CalculoConcorrente(A, B, dimensao);
@@ -86,13 +85,12 @@ public class Main {
 
 			System.out.println("Tempo de execução: " + terminoConcorrente);
 
-			// Salvando arquivo
+			// Salvando arquivo com resultado da multiplicação.
 			ManipulaArquivo salvarArquivo = new ManipulaArquivo();
-
 			salvarArquivo.salvarArquivo(C, dimensao, metodo);
 
+			// Salvando arquivo com tempo de execução.
 			ManipulaArquivo salvarTempo = new ManipulaArquivo();
-
 			salvarTempo.salvarTempo(terminoConcorrente, dimensao, metodo);
 
 		}

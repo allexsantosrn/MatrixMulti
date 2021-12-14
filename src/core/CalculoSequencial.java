@@ -7,7 +7,7 @@ public class CalculoSequencial {
 	private int[][] C;
 	private int dimensao;
 
-	//Construtor
+	// Construtor
 	public CalculoSequencial(int[][] A, int[][] B, int dimensao) {
 		this.A = A;
 		this.B = B;
@@ -15,7 +15,7 @@ public class CalculoSequencial {
 		this.dimensao = dimensao;
 	}
 
-	//Método que retorna a matriz calculada
+	// Método que retorna a matriz calculada.
 	public int[][] getC() {
 		return C;
 	}

@@ -16,7 +16,7 @@ public class CalculoConcorrente extends Thread {
 		CalculoConcorrente.dimensao = dimensao;
 	}
 
-	// Método que retorna a matriz calculada
+	// Método que retorna a matriz calculada.
 	public int[][] getC() {
 		return C;
 	}
@@ -25,33 +25,34 @@ public class CalculoConcorrente extends Thread {
 
 		super(nome);
 		this.index = index;
-	}	
-	
-	// Metodo para a multiplicaÃ§Ã£o de matrizes, de modo concorrente
+	}
+
+	// Método para a multiplicação de matrizes no modelo concorrente.
 	public void MultiplicaMatrizes() {
-		for(int index=0; index < dimensao; index++) {
+
+		for (int index = 0; index < dimensao; index++) {
 			String nome = "Thread" + index;
-			Thread threadCalcular  = new CalculoConcorrente(nome, index);	
+			Thread threadCalcular = new CalculoConcorrente(nome, index);
 			threadCalcular.start();
-			
+
 			try {
 				threadCalcular.join();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		}											
-	}
-	
-	public void run () {	
-		int resultado = 0;
-		for(int linha=0; linha < dimensao; linha++) {
-			for(int coluna=0; coluna < dimensao; coluna++) {
-				resultado = CalculoConcorrente.A[linha][this.index] * CalculoConcorrente.B[this.index][coluna];
-				CalculoConcorrente.C[linha][coluna] += resultado;
-				
-			}	
 		}
 	}
 
+	// Método run.
+	public void run() {
+		int resultado = 0;
+		for (int linha = 0; linha < dimensao; linha++) {
+			for (int coluna = 0; coluna < dimensao; coluna++) {
+				resultado = CalculoConcorrente.A[linha][this.index] * CalculoConcorrente.B[this.index][coluna];
+				CalculoConcorrente.C[linha][coluna] += resultado;
+
+			}
+		}
+	}
 
 }
