@@ -103,7 +103,7 @@ public class ManipulaArquivo {
 
 		if (metodo.equals("S")) {
 
-			path = new String("tempos/sequencial/C" + tamanho + "x" + tamanho + ".txt");
+			path = new String("tempos/sequencial/S" + tamanho + "x" + tamanho + ".txt");
 		}
 
 		if (metodo.equals("C")) {
