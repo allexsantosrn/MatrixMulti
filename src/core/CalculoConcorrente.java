@@ -22,7 +22,6 @@ public class CalculoConcorrente extends Thread {
 	}
 
 	public CalculoConcorrente(String nome, int index) {
-
 		super(nome);
 		this.index = index;
 	}

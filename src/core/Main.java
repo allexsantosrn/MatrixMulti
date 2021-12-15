@@ -51,11 +51,11 @@ public class Main {
 
 			String metodo = "S";
 
-			long inicioSequencial = System.currentTimeMillis();
+			long inicioSequencial = System.currentTimeMillis(); 
 
 			CalculoSequencial calculoSequencial = new CalculoSequencial(A, B, dimensao);
 			calculoSequencial.MultiplicaMatrizes();
-			int C[][] = calculoSequencial.getC();
+			int C[][] = calculoSequencial.getC(); 
 
 			long terminoSequencial = System.currentTimeMillis() - inicioSequencial;
 
