@@ -1,4 +1,4 @@
-# MatrixMulti
+# MatrixMultiplication
 
 ## Autor:
 - Alexandre Dantas dos Santos
