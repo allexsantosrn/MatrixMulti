@@ -46,48 +46,53 @@ public class Main {
 		int A[][] = lerArquivo.lerAquivo(arquivoA);
 		int B[][] = lerArquivo.lerAquivo(arquivoB);
 
-		// Caso o argumento passado seja do tipo Sequencial
+		// Caso o argumento passado seja do tipo sequencial
 		if (args[1].equals("S")) {
 
 			String metodo = "S";
 
-			long inicioSequencial = System.currentTimeMillis(); 
+			long inicioSequencial = System.currentTimeMillis();  // Início da contagem de tempo concorrente
 
-			CalculoSequencial calculoSequencial = new CalculoSequencial(A, B, dimensao);
+			CalculoSequencial calculoSequencial = new CalculoSequencial(A, B, dimensao); 
 			calculoSequencial.MultiplicaMatrizes();
 			int C[][] = calculoSequencial.getC(); 
 
-			long terminoSequencial = System.currentTimeMillis() - inicioSequencial;
+			long terminoSequencial = System.currentTimeMillis() - inicioSequencial; // Término da contagem de tempo sequencial
 
-			System.out.println("Tempo de execução: " + terminoSequencial);
-
+			System.out.println("Tempo de execução: " + terminoSequencial); 
+			
+			
 			// Salvando arquivo com resultado da multiplicação.
 			ManipulaArquivo salvarArquivo = new ManipulaArquivo();
 			salvarArquivo.salvarArquivo(C, dimensao, metodo);
+			
 
 			// Salvando arquivo com tempo de execução.
 			ManipulaArquivo salvarTempo = new ManipulaArquivo();
 			salvarTempo.salvarTempo(terminoSequencial, dimensao, metodo);
 
 		}
-
+		
+		// Caso o argumento passado seja do tipo concorrente
 		if (args[1].equals("C")) {
 
 			String metodo = "C";
 
-			long inicioConcorrente = System.currentTimeMillis();
+			long inicioConcorrente = System.currentTimeMillis(); // Início da contagem de tempo concorrente
 
 			CalculoConcorrente calculoConcorrente = new CalculoConcorrente(A, B, dimensao);
 			calculoConcorrente.MultiplicaMatrizes();
 			int C[][] = calculoConcorrente.getC();
 
-			long terminoConcorrente = System.currentTimeMillis() - inicioConcorrente;
+			long terminoConcorrente = System.currentTimeMillis() - inicioConcorrente; // Término da contagem de tempo concorrente
 
 			System.out.println("Tempo de execução: " + terminoConcorrente);
-
+			
+			
 			// Salvando arquivo com resultado da multiplicação.
 			ManipulaArquivo salvarArquivo = new ManipulaArquivo();
 			salvarArquivo.salvarArquivo(C, dimensao, metodo);
+			
 
 			// Salvando arquivo com tempo de execução.
 			ManipulaArquivo salvarTempo = new ManipulaArquivo();
