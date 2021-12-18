@@ -18,5 +18,4 @@
 
 ## Comandos para execução
 - Na pasta raiz do projeto acessar a pasta bin: **cd bin**.
-- Executar a aplicação repassando os argumentos desejados: **Java core.Main 4 S**. 
-
+- Executar a aplicação informando os argumentos necessários: **Java core.Main 4 S**.
