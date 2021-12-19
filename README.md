@@ -7,7 +7,7 @@
 - Implementar a solução da multiplicação entre duas matrizes por meio concorrente e sequencial e realizar a comparação entre essas soluções no tocante ao tempo de execução.
 
 ## Metodologia
-- O projeto foi desenvolvido na Linguagem de Programação Java através da IDE Eclipse.
+- O projeto foi desenvolvido na Linguagem de Programação Java através da IDE Eclipse (JAVA 11).
 - Foram utilizadas matrizes quadradas, iniciando da matriz 4 x 4 até a matriz 2048 x 2048 (Matrizes fornecidas pelo docente).
 - Cada produto de matrizes (par de matrizes) foi multiplicado 20 vezes para os modelos sequencial e concorrente.
 - Os arquivos de entrada fornecidos pelo docente ficam localizados nas pastas: **bin/dados**.
