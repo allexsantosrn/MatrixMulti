@@ -12,6 +12,7 @@
 - Cada produto de matrizes (par de matrizes) foi multiplicado 20 vezes para os modelos sequencial e concorrente.
 - Os arquivos com o resultado entre o produto da matrizes ficam salvos nas pastas: **bin/resultados/sequencial** e **bin/resultados/concorrente**.
 - Os arquivos com o resultado dos tempos de execução para cada modelo ficam salvos nas pastas: **bin/tempos/sequencial** e **bin/tempos/concorrente**.
+- O relatório final do projeto está presente no arquivo: RelatorioFinal.pdf
 
 ## Execução
 - Para iniciar a aplicação executar o arquivo Main.Java presente nas pastas /bin/core.
